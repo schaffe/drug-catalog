@@ -1,0 +1,19 @@
+{
+  "name": "drug-catalog",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Artur Dzidzoiev",
+  "license": "ISC",
+  "description": "Home drugs catalog",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.24",
+    "morgan": "^1.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
