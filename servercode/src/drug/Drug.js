@@ -1,11 +1,12 @@
 'use strict';
 
-function up () {
-    return new Promise(function (resolve) {
-        resolve()
-    })
+class Drug {
+    constructor(name, quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
 }
 
 module.exports = {
-    up
+    Drug
 };
