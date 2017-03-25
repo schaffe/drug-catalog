@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <h1>{{message}}</h1>
+    <drugs-list></drugs-list>
   </div>
 </template>
 
 <script>
+import drugsList from './assets/js/components/DrugsList.vue';
 export default {
   name: 'app',
+  components: {
+    drugsList
+  },
   data () {
     return {
       message: 'Lilu'
