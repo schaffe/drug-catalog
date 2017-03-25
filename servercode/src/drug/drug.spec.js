@@ -1,12 +1,10 @@
 'use strict';
 
-const DrugService = require('./DrugService');
+const DrugService = require('./drug');
 const Drug = require('./Drug');
 const expect = require('chai').expect;
 
 describe('DrugService module', () => {
-
-
 
 
     describe('"add"', () => {
