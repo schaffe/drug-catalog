@@ -13,5 +13,6 @@ drugs.get((req, res) => {
 drugs.post((req, res) => {
     service
         .add(req.body)
-        .then((result) => res.json(result));
+        .then((result) => res.json(result))
+        .catch((err) => res.status(400).json({'error': err}))
 });

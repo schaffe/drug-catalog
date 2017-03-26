@@ -1,6 +1,6 @@
 {
   "name": "drug-catalog",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha src/**/**.spec.js",
@@ -14,6 +14,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongodb": "^2.2.24",
+    "mongoose": "^4.9.1",
     "morgan": "^1.8.1"
   },
   "devDependencies": {
