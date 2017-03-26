@@ -1,12 +1,20 @@
-const mongo = require('mongo');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+const drugSchema = new Schema({
+    title: {type: String, required: true},
+    group: [{type: String, required: false}],
+    bestBefore: {type: Date, required: false},
+    number: {type: String, required: true, default: 1},
+});
+
+const Drug = mongoose.model('Drugs', drugSchema);
 
 exports.add = (drug) => {
     console.log(drug);
-    const collection = mongo.get().collection('drugs');
-    return collection.insertOne(drug);
+    return new Drug(drug).save();
 };
 
 exports.fetch = () => {
-    const collection = mongo.get().collection('drugs');
-    return collection.find().toArray();
+    return Drug.find();
 };
