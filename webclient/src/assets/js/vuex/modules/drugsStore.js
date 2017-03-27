@@ -11,7 +11,8 @@ let getters = {
 let actions = {
     fetchDrugs: (store) => {
         api.drugs.get()
-            .then(response => {
+            .then(response => response.json())
+            .then((response) => {
                 response.forEach(item => store.commit('ADD_DRUG', item))
             });
     }
