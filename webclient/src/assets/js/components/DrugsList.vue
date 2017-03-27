@@ -21,26 +21,20 @@
 </template>
 
 <script>
+import store from '../vuex/index';
+
 export default{
+    beforeCreate() {
+        store.dispatch('fetchDrugs');
+    },
     data(){
         return {
-            drugs: [
-                {
-                    title: 'Festal',
-                    category: 'stomach',
-                    date: '01-11-2017',
-                    number: 1,
-                    action: 'not required'
-                },
-                {
-                    title: 'Noshpa',
-                    category: 'ache',
-                    date: '',
-                    number: 0,
-                    action: 'buy one pack'
-                }
-            ]
         };
+    },
+    computed: {
+        drugs() {
+            return store.getters.drugsList;
+        }
     }
 }
 </script>
@@ -54,6 +48,4 @@ export default{
         width: 100%;
         border-spacing: 15px;
     }
-
-
 </style>
