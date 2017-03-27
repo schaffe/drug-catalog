@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "main": "src/index.js",
   "scripts": {
+    "prestart": "scripts/docker-start.sh",
     "test": "mocha src/**/**.spec.js",
     "setup": "scripts/docker-run.sh"
   },
