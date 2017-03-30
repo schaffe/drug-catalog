@@ -9,7 +9,7 @@ Allication consist of separate components:
 * Web application
 
 ### Preconditions:
-You must have installed and added to PATH docker, npm, node 6. You must me added to `docker` group
+You must have installed and added to PATH docker, npm, node 6. You must be added to `docker` group
 `sudo usermod -aG docker $USER`
 
 ### Initialize environment
