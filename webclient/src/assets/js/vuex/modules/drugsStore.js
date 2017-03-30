@@ -15,6 +15,13 @@ let actions = {
             .then((response) => {
                 response.forEach(item => store.commit('ADD_DRUG', item))
             });
+    },
+    addDrug: (store, drug) => {
+        api.drugs.post(drug)
+            .then(res => res.json())
+            .then(res => {
+                store.commit('ADD_DRUG', res)
+            });
     }
 };
 let mutations = {

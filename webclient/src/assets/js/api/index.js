@@ -1,8 +1,18 @@
-import ROOT_URL from '../config';
+import Resourses from './resourses';
 
-console.log('ROOT_URL', ROOT_URL);
 let drugs = {
-    get: () => fetch(ROOT_URL + '/drugs'),
+    get: () => fetch(Resourses.drugs.list),
+    post: (drug) => {
+        let data = JSON.stringify(drug);
+        return fetch(Resourses.drugs.create, {
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: data
+        });
+    }
 };
 
 export default {
