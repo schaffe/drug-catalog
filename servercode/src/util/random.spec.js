@@ -3,37 +3,37 @@ const random = require('./random');
 
 describe('random module', () => {
 
-    describe('"random alphanumeric"', () => {
+    it('"returns random alphanumeric"', () => {
         let actual = random.string(10, true);
         assert.equal(10, actual.length);
     });
-    describe('"random chars"', () => {
+    it('"returns random chars"', () => {
         let actual = random.string();
         assert(actual.length === 5);
         assert.isFalse(/\d/.test(actual))
     });
 
-    describe('"random empty"', () => {
+    it('"returns random empty"', () => {
         let actual = random.string(0);
         assert(actual.length === 0);
     });
 
-    describe('"random float"', () => {
+    it('"returns random float"', () => {
         let actual = random.decimal();
         assert(actual >= 0 && actual < 1);
     });
 
-    describe('"random int default"', () => {
+    it('"returns random int default"', () => {
         let actual = random.int();
         assert(actual >= 0 && actual < 100);
     });
 
-    describe('"random int range"', () => {
+    it('"returns random int range"', () => {
         let actual = random.int(10);
         assert(actual >= 0 && actual < 10);
     });
 
-    describe('"random int range"', () => {
+    it('"returns random int range"', () => {
         let actual = random.int(0);
         assert(actual === 0);
     });
