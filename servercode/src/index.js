@@ -1,7 +1,7 @@
 const express = require("express");
 const config = require("config/config");
 const morgan = require("morgan");
-const mongo = require('mongo');
+const mongo = require('util/mongo');
 const bodyParser = require('body-parser');
 
 const app = express();
