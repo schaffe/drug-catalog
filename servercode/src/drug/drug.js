@@ -8,30 +8,30 @@ const drugSchema = new mongoose.Schema({
     bestBefore: {type: Date, required: false},
     amount: {type: String, required: true, default: 1},
 });
-
 const Drug = mongoose.model('Drugs', drugSchema);
-
-exports.add = (drug) => {
-    console.log(drug);
-    if (drug.hasOwnProperty('id')) {
-        return exports.delete(drug.id)
-            .then(() => {
+const self = (() => {
+    return {
+        add: (drug) => {
+            if (drug.hasOwnProperty('id')) {
+                return self.remove(drug.id)
+                    .then(() => {
+                        return new Drug(drug).save();
+                    })
+            } else {
+                drug.id = random.string(8, true);
                 return new Drug(drug).save();
-            })
-    } else {
-        drug.id = random.string(8, true);
-        return new Drug(drug).save();
+            }
+        },
+        fetch: () => {
+            return Drug.find();
+        },
+        remove: (id) => {
+            return Drug.remove({id: id}).exec();
+        },
+        _drop: () => {
+            return Drug.remove({}).exec();
+        },
     }
-};
+})();
 
-exports.fetch = () => {
-    return Drug.find();
-};
-
-exports.remove = (id) => {
-    return Drug.remove({id: id}).exec();
-};
-
-exports._drop = () => {
-    return Drug.remove({}).exec();
-};
+module.exports = self;
