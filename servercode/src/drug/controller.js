@@ -16,3 +16,11 @@ drugs.post((req, res) => {
         .then((result) => res.json(result))
         .catch((err) => res.status(400).json({'error': err}))
 });
+
+router.route('/:id')
+    .delete((req, res) => {
+        service
+            .remove(req.params.id)
+            .then((result) => res.json(result))
+            .catch((err) => res.status(400).json({'error': err}))
+    });

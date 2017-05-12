@@ -53,4 +53,29 @@ describe('DrugService module', () => {
                 return DrugService.remove(added.id);
             })
     });
+
+    it('should invalidate cache on add', () => {
+        let added;
+        return DrugService.add(item1)
+            .then(() => DrugService.fetch())
+            .then((result) => {
+                assert.equal(1, result.length);
+                return DrugService.add(item1);
+            })
+            .then((addedResult) => {
+                added = addedResult;
+                return DrugService.fetch()
+            })
+            .then((result) => {
+                assert.equal(2, result.length);
+                return DrugService.remove(added.id);
+            })
+            .then(() => DrugService.fetch())
+            .then((result) => {
+                assert.equal(1, result.length);
+                return DrugService.remove(result[0].id);
+            })
+            .then(() => DrugService.fetch())
+            .then((result) => assert.equal(0, result.length))
+    });
 });
