@@ -1,0 +1,19 @@
+language: node_js
+
+node_js:
+  - "node"
+  - "6"
+
+services:
+  - docker
+
+before_install:
+  - cd servercode && pwd
+  - npm run setup #runs docker script
+
+install:
+  - npm install -g mocha
+  - npm install
+
+script:
+  - npm test
