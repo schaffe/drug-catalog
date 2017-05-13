@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/schaffe/drug-catalog.svg?branch=master)](https://travis-ci.org/schaffe/drug-catalog)
 # Home first aid kit
 May be used to track consuption of drugs in your home aid kit.
 Currently in development.
