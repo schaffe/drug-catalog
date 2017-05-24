@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend-nodejs:
+    build: ./servercode
+    links:
+     - "mongo"
+     - "consul"
+    ports:
+     - "3000:3000"
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+    command: "--smallfiles --logpath=/dev/null"
+
+  consul:
+    image: "consul"
+    ports:
+      - "8300:8300"
+      - "8400:8400"
+      - "8500:8500"
+      - "53:8600/udp"
