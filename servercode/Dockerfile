@@ -1,19 +1,21 @@
 FROM node:alpine
 ENV NPM_CONFIG_LOGLEVEL warn
 
-# File Author / Maintainer
-MAINTAINER Artur Dzidzoiev
+MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>
 
-WORKDIR /src
+WORKDIR /code
 
 RUN npm install -g nodemon
 
 COPY package.json .
 RUN npm install && npm ls
 
-COPY src/ .
+COPY src/ src/
+
+RUN mkdir scripts
+COPY scripts/run-node.sh scripts/
 
 # Expose port
 EXPOSE  8080
 
-CMD ["nodemon", "index.js"]
+CMD ["./scripts/run-node.sh"]

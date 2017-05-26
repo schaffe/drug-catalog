@@ -1,6 +1,7 @@
 version: '3'
 services:
-
   backend-nodejs:
+    environment:
+      - ENV=DEV
     volumes:
-     - ./servercode/src:/src
+      - ./servercode:/code
