@@ -4,7 +4,7 @@ module.exports = {
     },
     "mongo": {
         "db": "example",
-        "host": "localhost",
+        "host": "mongo",
         "port": 27017
     }
 };
