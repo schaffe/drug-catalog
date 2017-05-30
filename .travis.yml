@@ -1,19 +1,15 @@
-language: node_js
-
-node_js:
-  - "node"
-  - "6"
+env:
+  DOCKER_COMPOSE_VERSION: 1.4.2
 
 services:
   - docker
 
 before_install:
-  - cd servercode && pwd
-  - npm run setup #runs docker script
-
-install:
-  - npm install -g mocha
-  - npm install
+  - sudo rm /usr/local/bin/docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
 
 script:
-  - npm test
+  - pwd && ls -ahl
+  - docker-compose -f compose-base.yml -f compose-test.yml -p backend-nodejs up
