@@ -4,7 +4,6 @@ services:
     build: ./servercode
     links:
      - "mongo"
-     - "consul"
     ports:
      - "3000:3000"
 
@@ -13,12 +12,3 @@ services:
     ports:
       - "27017:27017"
     command: "--smallfiles --logpath=/dev/null"
-
-  consul:
-    image: "consul"
-    ports:
-      - "8300:8300"
-      - "8400:8400"
-      - "8500:8500"
-      - "53:8600/udp"
-    command: "agent -dev -client 0.0.0.0 -log-level=warn"
