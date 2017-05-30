@@ -13,5 +13,7 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
 
 script:
-  - pwd && ls -ahl
-  - docker-compose -f compose-base.yml -f compose-test.yml -p backend-nodejs up
+  - docker-compose -f compose-base.yml -f compose-test.yml -p backend-nodejs up -d
+  - docker logs -f backendnodejs_backend-nodejs_1
+  - docker wait backendnodejs_backend-nodejs_1
+  - docker-compose -f compose-base.yml -f compose-test.yml stop
