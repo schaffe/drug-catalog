@@ -5,11 +5,12 @@ MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>
 
 WORKDIR /code
 
+COPY package.json .
+
 RUN mkdir scripts \
     && npm install -g nodemon \
     && npm install
 
-COPY package.json .
 COPY src/ src/
 COPY scripts/run-node.sh scripts/
 

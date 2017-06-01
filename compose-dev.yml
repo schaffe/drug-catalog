@@ -18,5 +18,5 @@ services:
           rm -rf node_modules;
           cp -a /tmp/node_modules /usr/src/app;
         fi &&
-        npm i --quite && npm run dev
+        npm run dev
         '
