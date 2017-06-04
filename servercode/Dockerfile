@@ -5,17 +5,16 @@ MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>
 
 WORKDIR /code
 
-RUN npm install -g nodemon
-
 COPY package.json .
-RUN npm install && npm ls
+
+RUN mkdir scripts \
+    && npm install -g nodemon \
+    && npm install
 
 COPY src/ src/
-
-RUN mkdir scripts
 COPY scripts/run-node.sh scripts/
 
 # Expose port
-EXPOSE  8080
+EXPOSE  3000
 
 CMD ["./scripts/run-node.sh"]

@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, './production/dist'),
     publicPath: '/dist/',
     filename: 'build.js'
   },
@@ -45,6 +45,8 @@ module.exports = {
     }
   },
   devServer: {
+    host: '0.0.0.0',
+    port: 8080,
     historyApiFallback: true,
     noInfo: true
   },

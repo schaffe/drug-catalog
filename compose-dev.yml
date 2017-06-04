@@ -5,3 +5,18 @@ services:
       - ENV=DEV
     volumes:
       - ./servercode:/code
+
+  frontend:
+    volumes:
+      - ./webclient:/usr/src/app
+    command: >
+        sh -c '
+        echo "Running frontend";
+        if test -d node_modules;
+        then
+          echo "node_modules_exists";
+          rm -rf node_modules;
+          cp -a /tmp/node_modules /usr/src/app;
+        fi &&
+        npm run dev
+        '
