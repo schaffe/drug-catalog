@@ -17,3 +17,12 @@ script:
   - docker logs -f backendnodejs_backend-nodejs_1
   - docker wait backendnodejs_backend-nodejs_1
   - docker-compose -f compose-base.yml -f compose-test.yml stop
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: $GITHUB_API_KEY
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: release
