@@ -33,10 +33,7 @@ let actions = {
 };
 let mutations = {
     ADD_DRUG: (state, drug) => state.drugs.push(drug),
-    REMOVE_DRUG: (state, id) => {
-        let index = state.drugs.findIndex((drug) => drug.id === id);
-        return index && state.drugs.splice(index, 1);
-    }
+    REMOVE_DRUG: (state, id) => state.drugs = state.drugs.filter((drug) => drug.id !== id)
 };
 
 export default {
