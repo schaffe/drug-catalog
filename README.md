@@ -22,7 +22,7 @@ This environment is for local dev purposes. You can up all services by one comma
 The volumes are mounted into the images so you shouldn't manually reload containers
 to refresh the code.
 ```bash
-docker-compose -f compose-base.yml -f compose-dev.yml -p backend-nodejs up --build
+docker-compose -f compose-base.yml -f compose-dev.yml up --build
 ```
 
 ##### TEST
