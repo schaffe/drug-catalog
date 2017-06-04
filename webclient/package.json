@@ -1,7 +1,7 @@
 {
   "name": "drugs",
   "description": "A Vue.js project",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "kastrulya <julia.hrihorieva@gmail.com>",
   "private": true,
   "scripts": {
