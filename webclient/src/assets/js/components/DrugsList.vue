@@ -8,11 +8,11 @@
         </div>
         <div class="field">
             <label for="category">Category</label>
-            <input type="title" id="category" v-model="category">
+            <input type="title" id="category" v-model="group">
         </div>
         <div class="field">
             <label for="due_date">Due date</label>
-            <input type="date" id="due_date" v-model="due_date">
+            <input type="date" id="due_date" v-model="bestBefore">
         </div>
         <div class="field">
             <label for="amount">Amount</label>
@@ -30,10 +30,10 @@
             </tr>
             <tr v-for="drug in drugs">
                 <td>{{drug.title}}</td>
-                <td>{{drug.category}}</td>
-                <td>{{drug.date || '-'}}</td>
-                <td>{{drug.number || '-'}}</td>
-                <td>{{drug.action}}</td>
+                <td>{{drug.group}}</td>
+                <td>{{drug.bestBefore || '-'}}</td>
+                <td>{{drug.amount || '-'}}</td>
+                <td><button @click="deleteDrug(drug.id)">X</button></td>
             </tr>
         </table>
     </div>
@@ -49,8 +49,8 @@ export default{
     data(){
         return {
             title: '',
-            category: '',
-            due_date: new Date(),
+            group: '',
+            bestBefore: new Date(),
             amount: 0
         };
     },
@@ -63,11 +63,14 @@ export default{
         addDrug(){
             store.dispatch('addDrug',{
                 title: this.title,
-                group: this.category.split(' '),
-                bestBefore: this.due_date,
-                number: this.amount
+                group: this.group,
+                bestBefore: this.bestBefore,
+                amount: this.amount
             })
         },
+        deleteDrug(id) {
+            store.dispatch('deleteDrug', id);
+        }
     }
 }
 </script>

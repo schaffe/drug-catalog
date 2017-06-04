@@ -12,6 +12,15 @@ let drugs = {
             method: 'POST',
             body: data
         });
+    },
+    delete: (id) => {
+        return fetch(Resourses.drugs.list + `/${id}`, {
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json',
+            },
+            method: 'DELETE'
+        })
     }
 };
 
