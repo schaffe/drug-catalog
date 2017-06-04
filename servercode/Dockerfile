@@ -3,13 +3,15 @@ ENV NPM_CONFIG_LOGLEVEL warn
 
 MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>
 
-WORKDIR /code
+WORKDIR /tmp
 
 COPY package.json .
-
-RUN mkdir scripts \
-    && npm install -g nodemon \
+RUN npm install -g nodemon \
     && npm install
+
+WORKDIR /usr/src/app
+RUN cp -a /tmp/node_modules /usr/src/app/ \
+    && mkdir scripts
 
 COPY src/ src/
 COPY scripts/run-node.sh scripts/

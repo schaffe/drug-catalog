@@ -4,7 +4,18 @@ services:
     environment:
       - ENV=DEV
     volumes:
-      - ./servercode:/code
+      - ./servercode:/usr/src/app
+    command: >
+        sh -c '
+        echo "Running backend";
+        if test -d node_modules;
+        then
+          echo "node_modules_exists";
+          rm -rf node_modules;
+        fi
+        && cp -a /tmp/node_modules /usr/src/app
+        && nodemon src/index.js;
+        '
 
   frontend:
     volumes:
@@ -16,7 +27,7 @@ services:
         then
           echo "node_modules_exists";
           rm -rf node_modules;
-          cp -a /tmp/node_modules /usr/src/app;
-        fi &&
-        npm run dev
+        fi 
+        && cp -a /tmp/node_modules /usr/src/app 
+        && npm run dev;
         '
