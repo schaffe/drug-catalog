@@ -1,10 +1,13 @@
-version: '3'
+version: '3.1'
 services:
 
   frontend:
     build: ./webclient/production
     ports:
       - "80:80"
+      - "443:443"
+    volumes:
+      - nginx-certs:/etc/nginx/certs
     restart: always
 
   backend-nodejs:
@@ -12,3 +15,8 @@ services:
 
   mongo:
     restart: always
+
+volumes:
+  nginx-certs:
+    external:
+      name: nginx-certs

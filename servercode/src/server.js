@@ -10,7 +10,7 @@ app.use(require('./cors'));
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use('/api', require('router'));
+app.use('/', require('router'));
 
 exports.run = () => {
     mongo.connect()
