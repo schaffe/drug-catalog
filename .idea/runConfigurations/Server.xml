@@ -1,5 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Server" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="src/index.js" node-parameters="/usr/bin/nodemon" working-dir="$PROJECT_DIR$/servercode">
-    <method />
-  </configuration>
-</component>
