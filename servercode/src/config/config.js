@@ -1,4 +1,4 @@
-module.exports = {
+const defaultConfig = {
     "express": {
         "port": 3000
     },
@@ -8,3 +8,9 @@ module.exports = {
         "port": 27017
     }
 };
+
+if (process.env.ENV === "TEST_LOCAL") {
+    defaultConfig.mongo.host = "localhost";
+}
+
+module.exports = defaultConfig;

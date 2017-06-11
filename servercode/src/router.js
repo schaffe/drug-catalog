@@ -5,4 +5,4 @@ router.get('/', function (req, res) {
     res.json({message: 'Hi! Good to see you here.'});
 });
 
-router.use('/drugs', require('drug/controller'));
+router.use('/drugs', require('./drug/controller'));

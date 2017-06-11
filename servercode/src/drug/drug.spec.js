@@ -1,8 +1,7 @@
 'use strict';
-require('../test/bootstap.spec');
-const DrugService = require('drug/drug');
+const DrugService = require('./drug');
 const assert = require('chai').assert;
-const mongo = require('util/mongo');
+const mongo = require('../util/mongo');
 
 describe('DrugService module', () => {
 
