@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+app.use(require('cookie-parser')());
 app.use(require('./cors'));
 app.use(morgan('tiny'));
 app.use(bodyParser.urlencoded({ extended: true }));

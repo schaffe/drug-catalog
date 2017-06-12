@@ -1,6 +1,7 @@
 const service = require('./LoginPasswordAuthenticator');
 const router = require('express').Router();
 const rest = require('../util/RestCommon');
+const jwtAuth = require('./JwtAuthenticator');
 module.exports = router;
 
 const auth = router.route('/');
@@ -17,4 +18,9 @@ auth.post((req, res) => {
             res.sendStatus(200);
         })
         .catch((err) => rest.handleError(res, err, 401))
+});
+
+auth.delete(jwtAuth.authenticate, (req, res) => {
+    res.clearCookie("x-secure-token");
+    res.sendStatus(200);
 });

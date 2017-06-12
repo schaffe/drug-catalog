@@ -2,6 +2,18 @@ const jwt = require('./JwtService');
 
 module.exports = (() => {
     return {
-        authenticate: (token) => jwt.verify(token)
+        authenticate: (req,res,next) => {
+            let token = req.cookies["x-secure-token"];
+            try {
+                let user = jwt.verify(token);
+                req.context = {
+                    user: user
+                };
+            } catch (err) {
+                res.sendStatus(403);
+                return;
+            }
+            next();
+        }
     }
 })();
