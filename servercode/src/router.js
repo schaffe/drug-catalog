@@ -6,3 +6,4 @@ router.get('/', function (req, res) {
 });
 
 router.use('/drugs', require('./drug/controller'));
+router.use('/auth', require('./auth/AuthController'));
