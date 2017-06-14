@@ -11,9 +11,9 @@ export default {
         isLoggedIn: state => state.isLoggedIn
     },
     actions: {
-        login: (store) => {
+        login: (store, authData) => {
             store.commit(LOGIN);
-            auth.login()
+            auth.login(authData)
                 .then(user => store.commit(LOGIN_SUCCESS, user));
         },
         logout: (store) => {

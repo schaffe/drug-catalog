@@ -10,12 +10,8 @@ auth.post((req, res) => {
     return service
         .authenticate(req.body)
         .then((result) => {
-            res.cookie("x-secure-token", result, {
-                httpOnly: true,
-                maxAge: 30 * 60 * 60 * 24,
-                // secure: true
-            });
-            res.sendStatus(200);
+            res.header('Set-Cookie', 'x-secure-token=' + result.token + '; HttpOnly');
+            res.json(result.user);
         })
         .catch((err) => rest.handleError(res, err, 401))
 });

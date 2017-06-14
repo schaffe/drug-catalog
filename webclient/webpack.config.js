@@ -48,7 +48,13 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    proxy: {
+        '/api': {
+            target: 'http://backend-nodejs:3000',
+            secure: false
+        }
+    }
   },
   performance: {
     hints: false

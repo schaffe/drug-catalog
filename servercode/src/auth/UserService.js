@@ -2,7 +2,8 @@ const getUser = (login) => {
     if (login === "admin")
         return Promise.resolve({
             login: "admin",
-            password: "$2a$10$SN0l7KEZ94ox5.VaqKW3xeE79J1xNWxpirUvu4Thnsc3zkjkA5dAS"
+            password: "$2a$10$SN0l7KEZ94ox5.VaqKW3xeE79J1xNWxpirUvu4Thnsc3zkjkA5dAS",
+            name: "Artur"
         });
     else
         return Promise.reject("User was not found");

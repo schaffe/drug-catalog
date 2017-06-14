@@ -8,22 +8,24 @@ const authenticate = (authData) => {
     return userService.getUser(login)
         .then(user => {
             return checkPassword(user.password, password)
-                ? Promise.resolve(jwt.issue(filterUserData(user)))
+                ? Promise.resolve(prepareResponse(user))
                 : Promise.reject("Username and password do not match")
         });
+};
+let prepareResponse = function (user) {
+    delete user.password;
+    return {
+        token: jwt.issue(user),
+        user
+    };
 };
 
 let checkPassword = function (userPassword, password) {
     return bcrypt.compareSync(password, userPassword);
 };
 
-const filterUserData = (userData) => {
-    delete userData.password;
-    return userData;
-};
-
 module.exports = (() => {
     return {
-        authenticate: authenticate
+        authenticate
     }
 })();

@@ -1,2 +1,2 @@
-const ROOT_URL = 'https://api.drug-catalog.ml';
+const ROOT_URL = '/api';
 export default ROOT_URL;

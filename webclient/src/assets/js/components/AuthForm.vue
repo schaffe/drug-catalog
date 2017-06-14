@@ -11,8 +11,8 @@
     export default {
         data() {
             return {
-                login: "",
-                password: ""
+                login: "admin",
+                password: "admin"
             }
         },
         methods: {
