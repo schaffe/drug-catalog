@@ -1,7 +1,12 @@
-import Resourses from './resourses';
+import ROOT_URL from "../config";
 
 let drugs = {
-    get: () => fetch(Resourses.drugs.list),
+    list: ROOT_URL + '/drugs',
+    create: ROOT_URL + '/drugs',
+};
+
+export default {
+    get: () => fetch(drugs.list),
     post: (drug) => {
         let data = JSON.stringify(drug);
         return fetch(Resourses.drugs.create, {
@@ -23,7 +28,3 @@ let drugs = {
         })
     }
 };
-
-export default {
-    drugs,
-}

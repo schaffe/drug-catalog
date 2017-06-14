@@ -1,4 +1,4 @@
-import api from "../../api/index";
+import drugs from "../../api/drugs";
 
 let state = {
     drugs: []
@@ -10,17 +10,17 @@ let getters = {
 };
 let actions = {
     fetchDrugs: (store) => {
-        api.drugs.get()
+        drugs.get()
             .then(response => response.json())
             .then(drugs => store.commit('ADD_ALL', drugs));
     },
     addDrug: (store, drug) => {
-        api.drugs.post(drug)
+        drugs.post(drug)
             .then(res => res.json())
             .then(res => store.commit('ADD_DRUG', res));
     },
     deleteDrug: (store, id) => {
-        api.drugs.delete(id)
+        drugs.delete(id)
             .then(res => res.json())
             .then(res => store.commit('REMOVE_DRUG', id))
     }

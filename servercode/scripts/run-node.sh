@@ -9,7 +9,6 @@ fi
 
 if [ "${ENV}" == 'TEST' ]; then
     npm test;
-    exit 0;
 fi
 
 node src/index.js;
