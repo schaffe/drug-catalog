@@ -7,8 +7,8 @@
 </template>
 
 <script>
-    import drugsList from './assets/js/components/DrugsList.vue';
-    import auth from './assets/js/components/AuthForm.vue';
+    import drugsList from './js/components/DrugsList.vue';
+    import auth from './js/components/AuthForm.vue';
     export default {
         name: 'app',
         components: {

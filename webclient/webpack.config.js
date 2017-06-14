@@ -52,7 +52,9 @@ module.exports = {
     proxy: {
         '/api': {
             target: 'http://backend-nodejs:3000',
-            secure: false
+            secure: false,
+            pathRewrite: {"^/api" : ""}
+
         }
     }
   },
