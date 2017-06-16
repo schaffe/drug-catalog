@@ -7,6 +7,7 @@
 </template>
 <script>
     import store from '../vuex/index';
+    import router from '../router/index';
 
     export default {
         data() {
@@ -21,9 +22,9 @@
                     login: this.login,
                     password: this.password
                 })
-//                    .then(() => {
-//                    this.$router.push("/")
-//                });
+                    .then(() => {
+                    router.push("/")
+                });
             }
         },
     };

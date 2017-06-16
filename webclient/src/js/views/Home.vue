@@ -1,16 +1,15 @@
 <template>
     <div id="app">
-        <auth/>
-        <hr>
-        <drugs-list></drugs-list>
+        <router-link class="login" to="login">Login</router-link>
+        <drugs-list/>
     </div>
 </template>
 
 <script>
-    import drugsList from './js/components/DrugsList.vue';
-    import auth from './js/components/AuthForm.vue';
+    import drugsList from '../components/DrugsList.vue';
+    import auth from '../components/AuthForm.vue';
     export default {
-        name: 'app',
+        name: 'home',
         components: {
             auth,
             drugsList
@@ -24,7 +23,10 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
-        margin-top: 60px;
+    }
+
+    .login {
+        color: blue;
     }
 
     h1, h2 {
