@@ -14,7 +14,8 @@ export default {
                 'Content-Type': 'application/json'
             },
             method: 'POST',
-            body: data
+            body: data,
+            credentials: 'same-origin'
         }).then(response => response.json());
     },
     logout: () => {
@@ -23,7 +24,8 @@ export default {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
             },
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'same-origin'
         })
     }
 };

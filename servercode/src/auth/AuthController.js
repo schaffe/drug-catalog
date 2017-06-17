@@ -10,11 +10,11 @@ auth.post((req, res) => {
     return service
         .authenticate(req.body)
         .then((result) => {
-            res.header('Set-Cookie', 'x-secure-token=' + result.token +
-                '; HttpOnly' +
-                '; path=/' +
-                '; max-age=' + result.expires +
-                '; domain: ' + domain()
+            res.header('Set-Cookie', 'x-secure-token=' + result.token
+                + '; HttpOnly'
+                + '; path=/'
+                + '; max-age=' + result.expires
+                // + '; domain=localhost.com'
             );
             res.json(result.user);
         })

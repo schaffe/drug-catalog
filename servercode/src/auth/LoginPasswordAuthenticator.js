@@ -17,7 +17,7 @@ const authenticate = (authData) => {
 let prepareResponse = function (user) {
     delete user.password;
     const expires = ttlSeconds;
-    const token = jwt.issue(user, expires);
+    const token = jwt.issue(user, expireTime(expires));
     return {
         token,
         user,
