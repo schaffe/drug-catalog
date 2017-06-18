@@ -1,4 +1,3 @@
-
 exports.string = (lenght = 5, numeric = false) =>
 {
     let result = "";

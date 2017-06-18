@@ -2,7 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, './production/dist'),
     publicPath: '/dist/',
@@ -48,7 +48,16 @@ module.exports = {
     host: '0.0.0.0',
     port: 8080,
     historyApiFallback: true,
-    noInfo: true
+    noInfo: true,
+    disableHostCheck: true,
+    proxy: {
+        '/api': {
+            target: 'http://backend-nodejs:3000',
+            secure: false,
+            pathRewrite: {"^/api" : ""}
+
+        }
+    }
   },
   performance: {
     hints: false

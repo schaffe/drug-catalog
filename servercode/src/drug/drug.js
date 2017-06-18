@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const random = require('util/random');
+const random = require('../util/random');
 const cache = new (require("node-cache"))({stdTTL: 100, checkperiod: 120});
 
 const drugSchema = new mongoose.Schema({

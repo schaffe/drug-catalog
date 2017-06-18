@@ -1,29 +1,34 @@
-import Resourses from './resourses';
+import ROOT_URL from "../config";
 
 let drugs = {
-    get: () => fetch(Resourses.drugs.list),
+    list: ROOT_URL + '/drugs',
+    create: ROOT_URL + '/drugs',
+};
+
+export default {
+    get: () => fetch(drugs.list, {
+        credentials: 'same-origin'
+    }),
     post: (drug) => {
         let data = JSON.stringify(drug);
-        return fetch(Resourses.drugs.create, {
+        return fetch(drugs.create, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
             method: 'POST',
-            body: data
+            body: data,
+            credentials: 'same-origin'
         });
     },
     delete: (id) => {
-        return fetch(Resourses.drugs.list + `/${id}`, {
+        return fetch(drugs.list + `/${id}`, {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
             },
-            method: 'DELETE'
+            method: 'DELETE',
+            credentials: 'same-origin'
         })
     }
 };
-
-export default {
-    drugs,
-}

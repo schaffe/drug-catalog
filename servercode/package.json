@@ -12,10 +12,11 @@
   "license": "ISC",
   "description": "Home drugs catalog",
   "dependencies": {
-    "app-module-path": "^2.2.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
-    "consul": "^0.29.0",
+    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.1",
     "mongodb": "^2.2.24",
     "mongoose": "^4.9.1",
     "morgan": "^1.8.1",

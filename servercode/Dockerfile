@@ -10,7 +10,8 @@ RUN npm install -g nodemon \
     && npm install
 
 WORKDIR /usr/src/app
-RUN cp -a /tmp/node_modules /usr/src/app/ \
+RUN cp -a /tmp/node_modules . \
+    && cp /tmp/package.json . \
     && mkdir scripts
 
 COPY src/ src/
