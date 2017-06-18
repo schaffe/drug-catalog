@@ -1,20 +1,42 @@
 <template>
     <div id="app">
-        <router-link class="login" to="login">Login</router-link>
-        <drugs-list/>
+        <router-link v-if="!me" class="login" to="login">Login</router-link>
+        <div v-else>
+            <span>{{me.name}}</span>
+            <button @click="logout()">Logout</button>
+        </div>
+        <drugs-list v-if="me"/>
     </div>
 </template>
 
 <script>
-    import drugsList from '../components/DrugsList.vue';
-    import auth from '../components/AuthForm.vue';
-    export default {
-        name: 'home',
-        components: {
-            auth,
-            drugsList
+import drugsList from '../components/DrugsList.vue';
+import store from '../vuex/index';
+
+export default {
+    name: 'home',
+    components: {
+        drugsList
+    },
+    beforeRouteEnter(to, from, next){
+        store.dispatch('getUser').then(() => next());
+    },
+    data(){
+        return {
+        };
+    },
+    computed: {
+        me() {
+            return store.getters.authUser;
+        }
+    },
+    methods: {
+        logout(){
+            store.dispatch('logout');
         }
     }
+
+}
 </script>
 
 <style lang="scss">
