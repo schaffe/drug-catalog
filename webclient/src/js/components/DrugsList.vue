@@ -38,7 +38,7 @@
 
 <script>
 import store from '../vuex/index';
-import datetime from '../directives/datetime';
+import datetime from './../directives/datetime';
 export default{
     components: {
         CreateDrug: require('./CreateDrug.vue')
@@ -60,7 +60,7 @@ export default{
 </script>
 
 <style scoped lang="scss">
-@import "../../css/color-palette";
+@import "../../assets/css/color-palette";
 .filters {
     padding: 15px;
     margin-top: 30px;
