@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken');
-
-const secret = "secret";
+const config = require('../config');
+const fs = require('fs');
 
 module.exports = (() => {
+    const secretKey = fs.readFileSync(config.secrets.jwtKeyPath);
+    const publicKey = fs.readFileSync(config.secrets.jwtPubKeyPath);
+
     return {
-        verify: (token) => jwt.verify(token, secret),
-        issue: (data, exp) => jwt.sign({
-            exp,
-            data
-        }, secret)
+        verify: (token) => jwt.verify(token, publicKey, {algorithm: 'RS256'}),
+        issue: (data, exp) => jwt.sign({exp, data}, secretKey, {algorithm: 'RS256'})
     }
 })();

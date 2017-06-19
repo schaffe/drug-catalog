@@ -2,7 +2,7 @@ const jwt = require('./JwtService');
 const userService = require('./UserService');
 const bcrypt = require('bcryptjs');
 
-const ttlSeconds = 30 * 24 * 60 * 60; // 30 days
+const TTL_SECONDS = 30 * 24 * 60 * 60; // 30 days
 
 const authenticate = (authData) => {
     let login = authData.login;
@@ -16,7 +16,7 @@ const authenticate = (authData) => {
 };
 let prepareResponse = function (user) {
     delete user.password;
-    const expires = ttlSeconds;
+    const expires = TTL_SECONDS;
     const token = jwt.issue(user, expireTime(expires));
     return {
         token,

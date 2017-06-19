@@ -1,4 +1,5 @@
 const jwt = require('./JwtService');
+const config = require('../config');
 
 module.exports = (() => {
     return {
@@ -14,7 +15,8 @@ module.exports = (() => {
                     user: user
                 };
             } catch (err) {
-                // console.error(err); //todo check debug
+                if (config.debug)
+                    console.error(err);
                 res.sendStatus(403);
                 return;
             }
