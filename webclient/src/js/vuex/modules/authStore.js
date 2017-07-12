@@ -5,20 +5,34 @@ const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGOUT = "LOGOUT";
 
 export default {
-    state: {},
+    state: {
+        user: null
+    },
     getters: {
-        getUser: state => state.user,
+        authUser: (state) => {
+            return state.user ;
+        },
         isLoggedIn: state => state.isLoggedIn
     },
     actions: {
         login: (store, authData) => {
             store.commit(LOGIN);
             auth.login(authData)
-                .then(user => store.commit(LOGIN_SUCCESS, user));
+                .then(user => {
+                    localStorage.setItem('user', JSON.stringify(user));
+                    store.commit(LOGIN_SUCCESS, user);
+                });
         },
         logout: (store) => {
             auth.logout()
-                .then(() => store.commit(LOGOUT));
+                .then(() => {
+                    localStorage.removeItem('user');
+                    store.commit(LOGOUT);
+                });
+        },
+        getUser: (store) => {
+            let savedUser = JSON.parse(localStorage.getItem('user'));
+            if (savedUser) store.commit(LOGIN_SUCCESS, savedUser);
         }
     },
     mutations: {
@@ -30,7 +44,7 @@ export default {
         },
         LOGOUT: (state) => {
             state.isLoggedIn = false;
-            delete state.user;
+            state.user = null;
         }
     }
 };

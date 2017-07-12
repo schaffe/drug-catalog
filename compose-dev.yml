@@ -14,7 +14,7 @@ services:
           rm -rf node_modules;
         fi
         && cp -a /tmp/node_modules /usr/src/app
-        && nodemon src/index.js;
+        && nodemon src/main/index.js;
         '
 
   frontend:
