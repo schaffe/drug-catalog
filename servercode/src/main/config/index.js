@@ -33,6 +33,8 @@ if (process.env.ENV === "DEV") {
     defaultConfig.isDebug = true;
 }
 
+console.log("WORKDIR: " + process.cwd());
+// console.log("ENVIRONMENT: " + JSON.stringify(process.env));
 console.log("Configuration done:");
 console.log(defaultConfig);
 
