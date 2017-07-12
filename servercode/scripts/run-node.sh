@@ -4,7 +4,7 @@ echo ${ENV};
 
 if [ "${ENV}" == 'DEV' ]; then
     trap "jobs -p | xargs kill" INT
-    nodemon src/index.js;
+    nodemon src/main/index.js;
 fi
 
 if [ "${ENV}" == 'TEST' ]; then

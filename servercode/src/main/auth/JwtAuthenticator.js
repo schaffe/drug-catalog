@@ -1,5 +1,5 @@
 const jwt = require('./JwtService');
-const config = require('../config');
+const config = require('../config/index');
 
 module.exports = (() => {
     return {

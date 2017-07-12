@@ -1,7 +1,7 @@
 'use strict';
-const DrugService = require('../../src/drug/drug');
+const DrugService = require('../../main/drug/drug');
 const assert = require('chai').assert;
-const mongo = require('../../src/util/mongo');
+const mongo = require('../../main/util/mongo');
 
 describe('DrugService module', () => {
 

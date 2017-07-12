@@ -2,7 +2,7 @@
 const cookieParser = require('cookie');
 const assert = require('chai').assert;
 const request = require('supertest');
-const app = require('../../src/server');
+const app = require('../../main/server');
 
 describe('AuthController', () => {
 

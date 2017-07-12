@@ -1,12 +1,12 @@
 {
   "name": "drug-catalog",
   "version": "0.1.0",
-  "main": "src/index.js",
+  "main": "src/main/index.js",
   "scripts": {
     "prestart": "scripts/docker-start.sh",
-    "test": "env ENV=TEST mocha test/**/**.spec.js",
+    "test": "env ENV=TEST mocha src/test/**/**.spec.js",
     "setup": "scripts/docker-run.sh",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/main/index.js"
   },
   "author": "Artur Dzidzoiev",
   "license": "ISC",
