@@ -1,4 +1,5 @@
 const jwt = require('./JwtService');
+const config = require('../config/index');
 
 module.exports = (() => {
     return {
@@ -11,10 +12,11 @@ module.exports = (() => {
             try {
                 let user = jwt.verify(token);
                 req.context = {
-                    user: user
+                    user
                 };
             } catch (err) {
-                // console.error(err); //todo check debug
+                if (config.isDebug)
+                    console.error(err);
                 res.sendStatus(403);
                 return;
             }

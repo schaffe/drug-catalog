@@ -16,6 +16,7 @@ RUN cp -a /tmp/node_modules . \
 
 COPY src/ src/
 COPY scripts/run-node.sh scripts/
+COPY resources/ resources/
 
 # Expose port
 EXPOSE  3000
