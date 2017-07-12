@@ -1,5 +1,5 @@
 const defaultConfig = {
-    debug: false,
+    isDebug: false,
     express: {
         port: 3000
     },
@@ -16,16 +16,24 @@ const defaultConfig = {
 
 //todo use inheritance
 if (process.env.ENV === "TEST_LOCAL") {
-    defaultConfig.debug = true;
+    defaultConfig.isDebug = true;
     defaultConfig.mongo.host = "localhost";
     defaultConfig.secrets = {
         jwtKeyPath: "servercode/resources/jwtRS256.key",
         jwtPubKeyPath: "servercode/resources/jwtRS256.key.pub"
-    }
+    };
+}
+
+if (process.env.ENV === "TEST") {
+    defaultConfig.isDebug = true;
+    defaultConfig.isTest = true;
 }
 
 if (process.env.ENV === "DEV") {
-    defaultConfig.debug = true;
+    defaultConfig.isDebug = true;
 }
+
+console.log("Configuration done:");
+console.log(defaultConfig);
 
 module.exports = defaultConfig;

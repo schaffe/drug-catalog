@@ -19,3 +19,5 @@ exports.run = () => {
         .then(() => console.warn("Listening to http://localhost:" + config.express.port));
 };
 
+module.exports = app;
+

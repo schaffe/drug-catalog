@@ -12,10 +12,10 @@ module.exports = (() => {
             try {
                 let user = jwt.verify(token);
                 req.context = {
-                    user: user
+                    user
                 };
             } catch (err) {
-                if (config.debug)
+                if (config.isDebug)
                     console.error(err);
                 res.sendStatus(403);
                 return;

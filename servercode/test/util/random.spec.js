@@ -1,5 +1,5 @@
 const assert = require('chai').assert;
-const random = require('./random');
+const random = require('../../src/util/random');
 
 describe('random module', () => {
 

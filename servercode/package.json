@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "prestart": "scripts/docker-start.sh",
-    "test": "mocha src/**/**.spec.js",
+    "test": "env ENV=TEST mocha test/**/**.spec.js",
     "setup": "scripts/docker-run.sh",
     "start": "nodemon src/index.js"
   },
@@ -26,6 +26,6 @@
     "assert": "^1.4.1",
     "chai": "^3.5.0",
     "mocha": "^3.2.0",
-    "sinon": "^2.1.0"
+    "supertest": "^3.0.0"
   }
 }
