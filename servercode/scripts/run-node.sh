@@ -12,4 +12,4 @@ if [ "${ENV}" == 'TEST' ]; then
     exit $?
 fi
 
-node src/index.js;
+node src/main/index.js;
