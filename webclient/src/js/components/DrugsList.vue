@@ -1,24 +1,22 @@
 <template>
     <div class="drugsList">
-        <h2>Drugs in your home</h2>
-        <h3>Have you something new?</h3>
-        <div class="field">
-            <label for="title">Title</label>
-            <input type="title" id="title" v-model="title">
-        </div>
-        <div class="field">
-            <label for="category">Category</label>
-            <input type="title" id="category" v-model="group">
-        </div>
-        <div class="field">
-            <label for="due_date">Due date</label>
-            <input type="date" id="due_date" v-model="bestBefore">
-        </div>
-        <div class="field">
-            <label for="amount">Amount</label>
-            <input type="number" id="amount" v-model="amount">
-        </div>
-        <input type="submit" value="Add" @click="addDrug">
+        <!--<div class="field">-->
+            <!--<label for="title">Title</label>-->
+            <!--<input type="title" id="title" v-model="title">-->
+        <!--</div>-->
+        <!--<div class="field">-->
+            <!--<label for="category">Category</label>-->
+            <!--<input type="title" id="category" v-model="group">-->
+        <!--</div>-->
+        <!--<div class="field">-->
+            <!--<label for="due_date">Due date</label>-->
+            <!--<input type="date" id="due_date" v-model="bestBefore">-->
+        <!--</div>-->
+        <!--<div class="field">-->
+            <!--<label for="amount">Amount</label>-->
+            <!--<input type="number" id="amount" v-model="amount">-->
+        <!--</div>-->
+        <!--<input type="submit" value="Add" @click="addDrug">-->
 
         <table class="list">
             <tr>
@@ -74,23 +72,3 @@ export default{
     }
 }
 </script>
-
-<style>
-    .drugsList h1 {
-        color: cadetblue;
-    }
-
-    .field {
-        display: inline-block;
-    }
-
-
-    .field>input {
-        display: block;
-    }
-    
-    .list {
-        width: 100%;
-        border-spacing: 15px;
-    }
-</style>
