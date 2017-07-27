@@ -1,47 +1,27 @@
 <template>
     <v-app id="app" standalone>
-        <v-navigation-drawer permanent clipped light>
-            <v-list dense class="pt-0">
-                <v-list-tile v-for="item in items" :key="item.title">
-                    <v-list-tile-action>
-                        <v-icon>{{ item.icon }}</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content>
-                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                </v-list-tile>
-            </v-list>
-        </v-navigation-drawer>
-        <v-toolbar class="indigo" dark>
-            <v-toolbar-title>Medicine</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <active-user></active-user>
-        </v-toolbar>
-        <main>
-            <v-container fluid>
-                <router-view></router-view>
-            </v-container>
-        </main>
+        <mainFrame v-if="loggedIn"></mainFrame>
+        <authForm v-else></authForm>
     </v-app>
 </template>
 
 <script>
-    import activeUser from '../components/ActiveUserHeader.vue'
-    import navigation from './Navigation.vue'
+    import mainFrame from './Frame.vue'
+    import authForm from './AuthForm.vue'
+    import store from '../vuex/index';
+    import router from '../router/index';
 
     export default {
-        components: {
-            activeUser,
-            navigation
+        beforeCreate(){
+            store.dispatch('getUser');
         },
-        data () {
-            return {
-                drawer: true,
-                items: [
-                    { title: 'All items', icon: 'dashboard' },
-                ],
-                mini: false,
-                right: null
+        components: {
+            mainFrame,
+            authForm
+        },
+        computed: {
+            loggedIn() {
+                return store.getters.authUser;
             }
         },
         name: 'app'

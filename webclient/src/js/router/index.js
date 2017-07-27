@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "../views/Home.vue";
-import AuthForm from "../components/AuthForm.vue";
+import App from "../components/App.vue";
+import DrugsList from "../components/DrugsList.vue";
+import T from "../components/DrugTable.vue";
 
 Vue.use(Router);
 
@@ -10,10 +11,13 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: Home
+            component: App
         }, {
             path: '/login',
-            component: AuthForm
+            component: App
+        },{
+            path: '/drugs',
+            component: T
         },
 
     ]

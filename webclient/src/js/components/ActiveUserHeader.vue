@@ -10,11 +10,12 @@
 
 <script>
     import store from '../vuex/index';
+    import router from '../router';
 
     export default {
         name: 'home',
-        beforeCreate(next){
-            store.dispatch('getUser').then(() => next());
+        beforeCreate(){
+            store.dispatch('getUser');
         },
         data(){
             return {
@@ -27,7 +28,8 @@
         },
         methods: {
             logout(){
-                store.dispatch('logout');
+                store.dispatch('logout')
+                    .then(() => router.push("login"));
             }
         }
     }
