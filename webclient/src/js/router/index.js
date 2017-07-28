@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 import App from "../components/App.vue";
-import DrugsList from "../components/DrugsList.vue";
-import T from "../components/DrugTable.vue";
+import Table from "../components/DrugTable.vue";
+import Add from "../components/AddDrugModal.vue";
 
 Vue.use(Router);
 
@@ -11,13 +11,16 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: App
+            component: Table
         }, {
             path: '/login',
             component: App
-        },{
+        }, {
             path: '/drugs',
-            component: T
+            component: Table
+        }, {
+            path: '/add',
+            component: Add
         },
 
     ]

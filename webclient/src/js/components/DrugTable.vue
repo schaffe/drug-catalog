@@ -10,6 +10,11 @@
             <td class="text-xs-right">{{ props.item.group }}</td>
             <td class="text-xs-right">{{ props.item.bestBefore }}</td>
             <td class="text-xs-right">{{ props.item.amount }}</td>
+            <td>
+                <v-btn icon @click="deleteDrug(props.item.id)">
+                    <v-icon>delete</v-icon>
+                </v-btn>
+            </td>
 
         </template>
     </v-data-table>
@@ -40,6 +45,11 @@
         computed: {
             items() {
                 return store.getters.drugsList;
+            }
+        },
+        methods: {
+            deleteDrug(id) {
+                store.dispatch('deleteDrug', id);
             }
         }
     }

@@ -26,7 +26,7 @@ let actions = {
     }
 };
 let mutations = {
-    ADD_ALL: (state, drugs) => state.drugs = state.drugs.concat(drugs),
+    ADD_ALL: (state, drugs) => state.drugs = drugs,
     ADD_DRUG: (state, drug) => state.drugs.push(drug),
     REMOVE_DRUG: (state, id) => state.drugs = state.drugs.filter((drug) => drug.id !== id)
 };
