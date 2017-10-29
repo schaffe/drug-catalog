@@ -1,4 +1,4 @@
-FROM nginx:alpine
+FROM werwolfby/armhf-alpine-nginx
 
 MAINTAINER Yuliia Dzidzoieva <yuliia.dzidzoieva@gmail.com>
 MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>

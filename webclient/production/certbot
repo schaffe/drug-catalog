@@ -3,7 +3,7 @@ https://github.com/sebble/docker-images/tree/master/letsencrypt-certbot
 docker run \
   -v nginx-certs:/etc/letsencrypt \
   -e http_proxy=$http_proxy \
-  -e domains="drug-catalog.ml,api.drug-catalog.ml" \
+  -e domains="drug-catalog.ml,www.drug-catalog.ml" \
   -e email="artur.dzidzoiev@gmail.com" \
   -p 80:80 \
   -p 443:443 \

@@ -5,6 +5,8 @@ services:
       - ENV=DEV
     volumes:
       - ./servercode:/usr/src/app
+    ports:
+      - "8080:8080"
     command: >
         sh -c '
         echo "Running backend";
@@ -20,6 +22,8 @@ services:
   frontend:
     volumes:
       - ./webclient:/usr/src/app
+    ports:
+     - "3000:3000"
     command: >
         sh -c '
         echo "Running frontend";
