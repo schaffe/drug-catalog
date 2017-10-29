@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM piixiiees/node-alpine-arm:v6
 ENV NPM_CONFIG_LOGLEVEL warn
 
 MAINTAINER Artur Dzidzoiev <artur.dzidzoiev@gmail.com>

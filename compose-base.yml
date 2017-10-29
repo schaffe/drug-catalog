@@ -4,8 +4,8 @@ services:
     build: ./webclient
     links:
       - "backend-nodejs"
-    ports:
-      - "8080:8080"
+#    ports:
+#      - "8080:8080"
 
   backend-nodejs:
     build: ./servercode
@@ -15,7 +15,7 @@ services:
      - "3000:3000"
 
   mongo:
-    image: "mongo"
+    image: "jixer/rpi-mongo"
     ports:
       - "27017:27017"
-    command: "--smallfiles --logpath=/dev/null"
+#    command: "--smallfiles --logpath=/dev/null"
